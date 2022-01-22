@@ -1,7 +1,6 @@
 package com.codimis.studentmentor.service;
 
 import com.codimis.studentmentor.entity.Student;
-import com.codimis.studentmentor.entity.StudentGroup;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.codimis.studentmentor.repository.StudentRepository;
 import org.springframework.stereotype.Service;

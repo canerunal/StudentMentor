@@ -14,10 +14,13 @@ public class StudentGroupServiceImpl implements StudentGroupService{
     public StudentGroupServiceImpl(StudentGroupRepository studentGroupRepository) {
         this.studentGroupRepository = studentGroupRepository;
     }
-
     @Override
     public StudentGroup addStudentGroup(StudentGroup studentGroup) {
         studentGroupRepository.save(studentGroup);
         return studentGroup;
+    }
+    @Override
+    public StudentGroup getStudentGroupById(int id) {
+        return studentGroupRepository.findById(id).orElse(null);
     }
 }
