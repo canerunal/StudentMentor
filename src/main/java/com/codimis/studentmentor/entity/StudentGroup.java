@@ -11,8 +11,8 @@ public class StudentGroup {
 
     private String name;
 
-    @ManyToMany(mappedBy = "studentGroupSet")
-    private Set<Student> studentSet;
+    @ManyToMany(mappedBy = "groups")
+    private Set<Student> students;
 
     public int getId() {
         return id;
@@ -30,11 +30,11 @@ public class StudentGroup {
         this.name = name;
     }
 
-    public Set<Student> getStudentSet() {
-        return studentSet;
+    public Set<Student> getStudents() {
+        return students;
     }
 
-    public void setStudentSet(Set<Student> studentSet) {
-        this.studentSet = studentSet;
+    public void setStudents(Set<Student> students) {
+        this.students = students;
     }
 }

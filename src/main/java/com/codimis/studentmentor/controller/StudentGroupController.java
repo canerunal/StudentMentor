@@ -25,8 +25,8 @@ public class StudentGroupController {
         StudentGroup createdStudentGroup = studentGroupService.addStudentGroup(studentGroup);
         return new ResponseEntity<>(createdStudentGroup, HttpStatus.CREATED);
     }
-    @GetMapping("/studentgroup")
-    public StudentGroup getStudentGroup(@RequestParam(name = "id") int id){
+    @GetMapping("/studentgroup/{id}")
+    public StudentGroup getStudentGroup(@PathVariable(name = "id") int id){
         return studentGroupService.getStudentGroupById(id);
     }
 }
