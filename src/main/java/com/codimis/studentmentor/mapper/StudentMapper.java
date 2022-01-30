@@ -1,5 +1,6 @@
 package com.codimis.studentmentor.mapper;
 
+import com.codimis.studentmentor.dto.GroupsOfStudentDto;
 import com.codimis.studentmentor.dto.StudentDto;
 import com.codimis.studentmentor.dto.StudentGroupDto;
 import com.codimis.studentmentor.entity.Student;
@@ -13,4 +14,5 @@ public interface StudentMapper {
 
     StudentDto studentToDto(Student student);
     Student dtoToStudent(StudentDto studentDto);
+    GroupsOfStudentDto dtoToGroupsOfStudent(Student student);
 }

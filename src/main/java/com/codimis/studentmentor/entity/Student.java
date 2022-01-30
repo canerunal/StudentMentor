@@ -1,11 +1,13 @@
 package com.codimis.studentmentor.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -19,19 +21,21 @@ public class Student {
     private String surname;
     private String password;
     @NotNull(message = "null olamaz")
-    private String university_name;
+    private String universityName;
+    private String email;
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
-    private Date created_date;
+    private Date createdDate;
     @UpdateTimestamp
     @Temporal(TemporalType.TIMESTAMP)
-    private Date updated_date;
-    @ManyToMany
+    private Date updatedDate;
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JsonBackReference
     @JoinTable(
             name = "student_group_members",
             joinColumns = @JoinColumn(name = "student_id"),
             inverseJoinColumns = @JoinColumn(name = "student_group_id"))
-    private Set<StudentGroup> groups;
+    private Set<StudentGroup> groups = new HashSet<>();
 
     public int getId() {
         return id;
@@ -65,28 +69,36 @@ public class Student {
         this.password = password;
     }
 
-    public String getUniversity_name() {
-        return university_name;
+    public String getUniversityName() {
+        return universityName;
     }
 
-    public void setUniversity_name(String university_name) {
-        this.university_name = university_name;
+    public void setUniversityName(String universityName) {
+        this.universityName = universityName;
     }
 
-    public Date getCreated_date() {
-        return created_date;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCreated_date(Date created_date) {
-        this.created_date = created_date;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public Date getUpdated_date() {
-        return updated_date;
+    public Date getCreatedDate() {
+        return createdDate;
     }
 
-    public void setUpdated_date(Date updated_date) {
-        this.updated_date = updated_date;
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public Date getUpdatedDate() {
+        return updatedDate;
+    }
+
+    public void setUpdatedDate(Date updatedDate) {
+        this.updatedDate = updatedDate;
     }
 
     public Set<StudentGroup> getGroups() {

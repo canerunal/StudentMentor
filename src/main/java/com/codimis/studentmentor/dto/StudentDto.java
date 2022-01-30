@@ -3,7 +3,7 @@ package com.codimis.studentmentor.dto;
 public class StudentDto {
     private String name;
     private String surname;
-    private String university_name;
+    private String universityName;
 
     public String getName() {
         return name;
@@ -21,11 +21,11 @@ public class StudentDto {
         this.surname = surname;
     }
 
-    public String getUniversity_name() {
-        return university_name;
+    public String getUniversityName() {
+        return universityName;
     }
 
-    public void setUniversity_name(String university_name) {
-        this.university_name = university_name;
+    public void setUniversityName(String universityName) {
+        this.universityName = universityName;
     }
 }

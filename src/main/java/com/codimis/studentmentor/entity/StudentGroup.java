@@ -1,5 +1,7 @@
 package com.codimis.studentmentor.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -12,6 +14,7 @@ public class StudentGroup {
     private String name;
 
     @ManyToMany(mappedBy = "groups")
+    @JsonManagedReference
     private Set<Student> students;
 
     public int getId() {
