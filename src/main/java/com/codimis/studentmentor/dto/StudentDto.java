@@ -1,8 +1,13 @@
 package com.codimis.studentmentor.dto;
 
+import javax.validation.constraints.NotNull;
+
 public class StudentDto {
+    @NotNull(message = "name can not be null")
     private String name;
+    @NotNull(message = "surname can not be null")
     private String surname;
+    @NotNull(message = "email can not be null")
     private String universityName;
 
     public String getName() {

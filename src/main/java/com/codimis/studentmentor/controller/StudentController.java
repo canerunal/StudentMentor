@@ -7,6 +7,8 @@ import com.codimis.studentmentor.entity.StudentGroup;
 import com.codimis.studentmentor.mapper.StudentMapper;
 import com.codimis.studentmentor.service.StudentGroupService;
 import com.codimis.studentmentor.service.StudentService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -34,8 +36,9 @@ public class StudentController {
         return StudentMapper.INSTANCE.studentToDto(student);
     }
     @PostMapping("/student")
-    public Student createStudent(@Valid @RequestBody StudentDto studentDto){
-        Student student = StudentMapper.INSTANCE.dtoToStudent(studentDto);
-        return studentService.saveStudent(student);
+    public ResponseEntity<Student> createStudent(@Valid @RequestBody StudentDto studentDto){
+        Student studentFromDto = StudentMapper.INSTANCE.dtoToStudent(studentDto);
+        Student savedStudent =  studentService.saveStudent(studentFromDto);
+        return new ResponseEntity<>(savedStudent, HttpStatus.CREATED);
     }
 }

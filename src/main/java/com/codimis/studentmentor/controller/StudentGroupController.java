@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 public class StudentGroupController {
 
@@ -23,7 +25,7 @@ public class StudentGroupController {
     }
 
     @PostMapping("/studentgroup")
-    public ResponseEntity<StudentGroup> createStudentGroup(@RequestBody StudentGroupDto studentGroupDto){
+    public ResponseEntity<StudentGroup> createStudentGroup(@Valid @RequestBody StudentGroupDto studentGroupDto){
         StudentGroup studentGroup = StudentGroupMapper.INSTANCE.dtoToStudentGroup(studentGroupDto);
         StudentGroup createdStudentGroup = studentGroupService.saveStudentGroup(studentGroup);
         return new ResponseEntity<>(createdStudentGroup, HttpStatus.CREATED);

@@ -15,12 +15,9 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    @NotNull(message = "null olamaz")
     private String name;
-    @NotNull(message = "null olamaz")
     private String surname;
     private String password;
-    @NotNull(message = "null olamaz")
     private String universityName;
     private String email;
     @CreationTimestamp

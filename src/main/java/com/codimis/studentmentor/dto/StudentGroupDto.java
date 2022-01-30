@@ -1,6 +1,9 @@
 package com.codimis.studentmentor.dto;
 
+import javax.validation.constraints.NotNull;
+
 public class StudentGroupDto {
+    @NotNull(message = "name can not be null")
     private String name;
 
     public String getName() {
