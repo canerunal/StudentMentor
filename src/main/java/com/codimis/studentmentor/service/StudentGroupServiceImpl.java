@@ -5,7 +5,7 @@ import com.codimis.studentmentor.repository.StudentGroupRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.Optional;
 
 @Service
 public class StudentGroupServiceImpl implements StudentGroupService{
@@ -21,7 +21,7 @@ public class StudentGroupServiceImpl implements StudentGroupService{
         return studentGroupRepository.save(studentGroup);
     }
     @Override
-    public StudentGroup getStudentGroupById(int id) {
-        return studentGroupRepository.findById(id).orElse(null);
+    public Optional<StudentGroup> getStudentGroupById(int id) {
+        return studentGroupRepository.findById(id);
     }
 }

@@ -7,6 +7,7 @@ import com.codimis.studentmentor.repository.StudentRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class StudentServiceImpl implements StudentService{
@@ -24,8 +25,8 @@ public class StudentServiceImpl implements StudentService{
     }
 
     @Override
-    public Student getStudentById(int id) {
-        return studentRepository.findById(id).orElse(null);
+    public Optional<Student> getStudentById(int id) {
+        return studentRepository.findById(id);
     }
 
     @Override

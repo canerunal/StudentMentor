@@ -2,9 +2,9 @@ package com.codimis.studentmentor.service;
 
 import com.codimis.studentmentor.entity.StudentGroup;
 
-import java.util.List;
+import java.util.Optional;
 
 public interface StudentGroupService {
     StudentGroup saveStudentGroup(StudentGroup studentGroup);
-    StudentGroup getStudentGroupById(int id);
+    Optional<StudentGroup> getStudentGroupById(int id);
 }

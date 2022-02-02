@@ -7,7 +7,7 @@ public class StudentDto {
     private String name;
     @NotNull(message = "surname can not be null")
     private String surname;
-    @NotNull(message = "email can not be null")
+    @NotNull(message = "universityName can not be null")
     private String universityName;
 
     public String getName() {
