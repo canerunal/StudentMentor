@@ -11,4 +11,5 @@ Planned technical features for the application are:
 -  Unit tests and integration tests
 -  CI / CD pipeline
 -  Accessed from a hosting service
+-  Authentication and authorization with JWT
 -  Login with Github feature
